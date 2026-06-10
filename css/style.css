@@ -11,17 +11,38 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* Fundo com um tom degradê da noite de São João */
-    background: linear-gradient(
-        rgba(20, 15, 35, 0.90),
-        rgba(40, 20, 10, 0.90)
-    ),
-    url('https://images.unsplash.com/photo-1528605248644-14dd04022da1');
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita barra de rolagem horizontal */
+    
+    /* Configurações básicas para a foto de fundo desfocada */
+    background: #140F23; /* Cor de fundo de segurança */
+    position: relative;
+}
+
+/* Criamos uma camada falsa para a imagem de fundo para poder desfocá-la */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Substitua pelo nome exato da sua foto na pasta 'imagem' */
+    background-image: 
+        linear-gradient(
+            rgba(20, 15, 35, 0.90),
+            rgba(40, 20, 10, 0.92)
+        ),
+        url('../imagem/fundo-comunidade.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: white;
-    min-height: 100vh;
+    /* --- A MÁGICA DO DESFOQUE ESTÁ AQUI --- */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    /* Garante que o fundo fique atrás de todo o conteúdo */
+    z-index: -1;
 }
 
 /* ==========================================================================
@@ -35,6 +56,8 @@ body {
     background-size: 180px;
     animation: bandeiras 12s linear infinite;
     filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.3));
+    position: relative;
+    z-index: 10;
 }
 
 @keyframes bandeiras {
@@ -43,11 +66,52 @@ body {
 }
 
 /* ==========================================================================
-   HEADER & FONTES ANIMADAS (EFEITO JUNINO)
+   HEADER COM LOGOS E FONTES ANIMADAS (EFEITO JUNINO)
    ========================================================================== */
 header {
     text-align: center;
     padding: 40px 20px 20px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Área das Logos */
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Espaço entre as logos */
+    margin-bottom: 20px;
+}
+
+/* Estilização básica das logos */
+.logos a::after {
+    display: none; /* Remove possíveis estilos de link */
+}
+
+/* Colocamos as imagens diretamente no local reservado pelo HTML */
+.logos::before {
+    content: "";
+    display: block;
+    width: 80px; /* Tamanho da primeira logo */
+    height: 80px;
+    background-image: url('../imagem/logo-paroquia.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
+}
+
+.logos::after {
+    content: "";
+    display: block;
+    width: 80px; /* Tamanho da segunda logo */
+    height: 80px;
+    background-image: url('../imagem/logo-pastoral.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
 }
 
 header h1 {
@@ -69,19 +133,13 @@ header h2 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
-header p {
-    margin-top: 10px;
-    opacity: 0.9;
-    font-size: 1.1rem;
-}
-
-/* Animação 1: Faz o título balançar suavemente como uma placa de barraca */
+/* Animação 1: Faz o título balançar suavemente */
 @keyframes balancoJunino {
     0% { transform: rotate(-3deg); }
     100% { transform: rotate(3deg); }
 }
 
-/* Animação 2: Efeito de pulsação luminosa que lembra o fogo */
+/* Animação 2: Efeito de brilho de fogueira */
 @keyframes brilhoFogueira {
     0% { text-shadow: 3px 3px 0px #7B241C, 0 0 10px #E65100, 0 0 20px #FF5722; }
     100% { text-shadow: 3px 3px 0px #7B241C, 0 0 15px #F57C00, 0 0 30px #FFCC80; }
@@ -98,24 +156,26 @@ header p {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 30px;
     padding: 20px 0 60px 0;
+    position: relative;
+    z-index: 10;
 }
 
 .card {
-    background: #FFFDF9; /* Cor creme/palha super aconchegante */
-    color: #3E2723; /* Marrom escuro café (combina muito mais que o preto/cinza) */
+    background: #FFFDF9; /* Cor creme super aconchegante */
+    color: #3E2723; /* Marrom escuro café */
     border-radius: 24px;
     padding: 30px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
     transition: .3s;
     
-    /* O PULO DO GATO: Borda tracejada que imita costura/remendo de roupa caipira! */
+    /* Borda tracejada que imita costura de roupa caipira */
     border: 4px dashed #D35400; 
     position: relative;
 }
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(230, 126, 34, 0.2);
+    box-shadow: 0 20px 40px rgba(230, 126, 34, 0.3);
 }
 
 .card h2, .card h3 {
@@ -171,7 +231,7 @@ button {
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 0px #1B5E20; /* Efeito 3D no botão */
+    box-shadow: 0 4px 0px #1B5E20; /* Efeito 3D */
     transition: .1s;
 }
 
@@ -181,14 +241,9 @@ button:hover {
     box-shadow: 0 2px 0px #1B5E20;
 }
 
-button:active {
-    transform: translateY(4px);
-    box-shadow: none;
-}
-
 /* ==========================================================================
    CONTADOR E ENSAIOS
-   ========================================================================== */
+   ========================================================================= */
 #contador {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -204,7 +259,6 @@ button:active {
     text-align: center;
     box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2);
     font-family: 'Fredoka', sans-serif;
-    font-size: 0.85rem;
 }
 
 #contador span {
@@ -213,12 +267,9 @@ button:active {
     font-weight: bold;
 }
 
-.ensaios ul {
-    list-style: none;
-}
-
 .ensaios li {
-    background: #FFF3CD; /* Amarelzinho aconchegante */
+    background: #FFF3CD; /* Amarelzinho */
+    list-style: none;
     margin-bottom: 12px;
     padding: 14px;
     border-radius: 12px;
@@ -247,5 +298,7 @@ button:active {
 @media(max-width: 768px){
     header h1 { font-size: 2.8rem; }
     header h2 { font-size: 1.4rem; }
+    .logos { gap: 15px; }
+    .logos::before, .logos::after { width: 60px; height: 60px; }
     #contador { grid-template-columns: repeat(2, 1fr); }
 }
