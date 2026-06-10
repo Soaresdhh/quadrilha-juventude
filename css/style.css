@@ -21,6 +21,7 @@ body {
 }
 
 /* Criamos uma camada falsa para a imagem de fundo para poder desfocá-la */
+/* Camada da imagem de fundo desfocada */
 body::before {
     content: "";
     position: fixed;
@@ -28,7 +29,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Substitua pelo nome exato da sua foto na pasta 'imagem' */
+    /* O nome exato que você escolheu para a foto! */
     background-image: 
         linear-gradient(
             rgba(20, 15, 35, 0.90),
@@ -38,13 +39,10 @@ body::before {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* --- A MÁGICA DO DESFOQUE ESTÁ AQUI --- */
     filter: blur(8px);
     -webkit-filter: blur(8px);
-    /* Garante que o fundo fique atrás de todo o conteúdo */
     z-index: -1;
 }
-
 /* ==========================================================================
    BANDEIRINHAS ANIMADAS
    ========================================================================== */
