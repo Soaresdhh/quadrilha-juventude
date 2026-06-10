@@ -7,7 +7,6 @@
     <title>Quadrilha Junina 2026</title>
     
     <link rel="stylesheet" href="CSS/style.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -16,9 +15,8 @@
     <div class="bandeirinhas"></div>
 
     <header>
-        <div class="logos">
-            </div>
-        <h1>Arraiá Jovens de Fátima</h1>
+        <div class="logos"></div>
+        <h1>Arraiá da Juventude</h1>
         <h2>Paróquia Nossa Senhora de Fátima</h2>
     </header>
 
@@ -27,13 +25,16 @@
         <div class="card">
             <h2>Inscrição da Quadrilha</h2>
             
+            <form id="formInscricao">
+                
+                <label>Nome da Dupla</label>
+                <input id="dupla" placeholder="Ex: João e Maria" required>
 
-
-                <label>Inserir nome dos paticipantes da dupla 2</label>
-                <input id="participante2" required>
+                <input type="hidden" id="participante1" value="-">
+                <input type="hidden" id="participante2" value="-">
 
                 <label>Telefone</label>
-                <input id="telefone" required>
+                <input id="telefone" placeholder="(00) 00000-0000" required>
 
                 <label>Confirma Presença?</label>
                 <select id="presenca">
