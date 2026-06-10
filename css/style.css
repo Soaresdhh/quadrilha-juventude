@@ -1,402 +1,251 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E FONTES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Lobster&family=Poppins:wght@400;600&display=swap');
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:'Poppins',sans-serif;
-    background:
-    linear-gradient(
-        rgba(10,15,40,0.85),
-        rgba(10,15,40,0.85)
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Fundo com um tom degradê da noite de São João */
+    background: linear-gradient(
+        rgba(20, 15, 35, 0.90),
+        rgba(40, 20, 10, 0.90)
     ),
     url('https://images.unsplash.com/photo-1528605248644-14dd04022da1');
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-    color:white;
-    min-height:100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    min-height: 100vh;
 }
 
-/* ===========================
+/* ==========================================================================
    BANDEIRINHAS ANIMADAS
-=========================== */
-
-.bandeirinhas{
-    height:80px;
-    width:100%;
-    background-image:url("https://www.svgrepo.com/show/248617/party-flags.svg");
-    background-repeat:repeat-x;
-    background-size:200px;
-    animation:bandeiras 15s linear infinite;
+   ========================================================================== */
+.bandeirinhas {
+    height: 90px;
+    width: 100%;
+    background-image: url("https://www.svgrepo.com/show/248617/party-flags.svg");
+    background-repeat: repeat-x;
+    background-size: 180px;
+    animation: bandeiras 12s linear infinite;
+    filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.3));
 }
 
-@keyframes bandeiras{
-    from{
-        background-position-x:0;
-    }
-
-    to{
-        background-position-x:1000px;
-    }
+@keyframes bandeiras {
+    from { background-position-x: 0; }
+    to { background-position-x: 1080px; }
 }
 
-/* ===========================
-   HEADER
-=========================== */
-
-header{
-    text-align:center;
-    padding:30px 20px;
+/* ==========================================================================
+   HEADER & FONTES ANIMADAS (EFEITO JUNINO)
+   ========================================================================== */
+header {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
 }
 
-.logos{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:30px;
-    margin-bottom:20px;
+header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 4.5rem;
+    color: #FFCA28; /* Amarelo milho brilhante */
+    display: inline-block;
+    /* Aplica a animação de balanço e brilho de fogueira */
+    animation: balancoJunino 3s ease-in-out infinite alternate, brilhoFogueira 1.5s ease-in-out infinite alternate;
+    transform-origin: top center;
 }
 
-.logo{
-    width:120px;
-    max-width:25vw;
-    background:white;
-    border-radius:15px;
-    padding:10px;
+header h2 {
+    font-family: 'Fredoka', sans-serif;
+    color: #FF9800; /* Laranja caipira */
+    margin-top: 15px;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
-header h1{
-    font-family:'Lobster',cursive;
-    font-size:4rem;
-    color:#FFD54F;
-    text-shadow:
-    3px 3px 10px rgba(0,0,0,0.5);
+header p {
+    margin-top: 10px;
+    opacity: 0.9;
+    font-size: 1.1rem;
 }
 
-header h2{
-    color:#FFB74D;
-    margin-top:10px;
+/* Animação 1: Faz o título balançar suavemente como uma placa de barraca */
+@keyframes balancoJunino {
+    0% { transform: rotate(-3deg); }
+    100% { transform: rotate(3deg); }
 }
 
-header p{
-    margin-top:10px;
-    opacity:0.9;
+/* Animação 2: Efeito de pulsação luminosa que lembra o fogo */
+@keyframes brilhoFogueira {
+    0% { text-shadow: 3px 3px 0px #7B241C, 0 0 10px #E65100, 0 0 20px #FF5722; }
+    100% { text-shadow: 3px 3px 0px #7B241C, 0 0 15px #F57C00, 0 0 30px #FFCC80; }
 }
 
-/* ===========================
-   CONTAINER
-=========================== */
-
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
-
-    gap:25px;
-
-    padding-bottom:50px;
+/* ==========================================================================
+   CONTAINER E CARDS (ESTILO ACONCHEGANTE / RETALHO)
+   ========================================================================== */
+.container {
+    width: 95%;
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+    padding: 20px 0 60px 0;
 }
 
-/* ===========================
-   CARDS
-=========================== */
-
-.card{
-    background:rgba(255,255,255,0.96);
-    color:#333;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.35);
-
-    transition:.3s;
+.card {
+    background: #FFFDF9; /* Cor creme/palha super aconchegante */
+    color: #3E2723; /* Marrom escuro café (combina muito mais que o preto/cinza) */
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transition: .3s;
+    
+    /* O PULO DO GATO: Borda tracejada que imita costura/remendo de roupa caipira! */
+    border: 4px dashed #D35400; 
+    position: relative;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(230, 126, 34, 0.2);
 }
 
-.card h3{
-    margin-bottom:20px;
-    color:#D35400;
+.card h2, .card h3 {
+    font-family: 'Fredoka', sans-serif;
+    color: #D35400;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px dotted #F39C12;
+    padding-bottom: 8px;
 }
 
-/* ===========================
-   FORMULÁRIO
-=========================== */
-
-form{
-    display:flex;
-    flex-direction:column;
+/* ==========================================================================
+   FORMULÁRIO COZY
+   ========================================================================== */
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-label{
-    margin-top:10px;
-    font-weight:600;
+label {
+    margin-top: 12px;
+    font-weight: 600;
+    color: #5D4037;
+    font-size: 0.95rem;
 }
 
-input,
-select{
-    margin-top:5px;
-    padding:12px;
-    border-radius:10px;
-    border:1px solid #ccc;
-    font-size:15px;
+input, select {
+    margin-top: 6px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px solid #E0D4C3;
+    background: #FFFFF9;
+    font-size: 15px;
+    color: #3E2723;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.2s;
 }
 
-button{
-    margin-top:20px;
-
-    border:none;
-
-    background:#2E7D32;
-
-    color:white;
-
-    padding:15px;
-
-    border-radius:12px;
-
-    font-size:17px;
-
-    cursor:pointer;
-
-    transition:.3s;
+input:focus, select:focus {
+    outline: none;
+    border-color: #E67E22;
+    background: #FFFBF0;
 }
 
-button:hover{
-    background:#1B5E20;
+button {
+    margin-top: 25px;
+    border: none;
+    background: #2E7D32; /* Verde bandeira */
+    color: white;
+    padding: 16px;
+    border-radius: 15px;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 0px #1B5E20; /* Efeito 3D no botão */
+    transition: .1s;
 }
 
-/* ===========================
-   CONTADOR
-=========================== */
-
-#contador{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
+button:hover {
+    background: #1B5E20;
+    transform: translateY(2px);
+    box-shadow: 0 2px 0px #1B5E20;
 }
 
-#contador div{
-    background:#D35400;
-
-    color:white;
-
-    padding:15px;
-
-    border-radius:12px;
-
-    text-align:center;
+button:active {
+    transform: translateY(4px);
+    box-shadow: none;
 }
 
-#contador span{
-    display:block;
-
-    font-size:2rem;
-
-    font-weight:bold;
+/* ==========================================================================
+   CONTADOR E ENSAIOS
+   ========================================================================== */
+#contador {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 15px;
 }
 
-/* ===========================
-   ENSAIOS
-=========================== */
-
-.ensaios ul{
-    list-style:none;
+#contador div {
+    background: #E67E22; /* Laranja fogueira */
+    color: white;
+    padding: 12px 6px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2);
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.85rem;
 }
 
-.ensaios li{
-    background:#FFF3CD;
-
-    margin-bottom:10px;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    font-weight:600;
+#contador span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
-.apresentacao{
-    text-align:center;
-
-    margin-top:15px;
-
-    font-size:2rem;
-
-    font-weight:bold;
-
-    color:#E53935;
+.ensaios ul {
+    list-style: none;
 }
 
-/* ===========================
-   MAPA
-=========================== */
-
-.mapa iframe{
-
-    width:100%;
-
-    height:300px;
-
-    border:none;
-
-    border-radius:15px;
-
-    margin-top:15px;
+.ensaios li {
+    background: #FFF3CD; /* Amarelzinho aconchegante */
+    margin-bottom: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #7D6608;
+    border-left: 5px solid #F1C40F;
 }
 
-.maps-btn{
-
-    display:block;
-
-    text-align:center;
-
-    margin-top:15px;
-
-    background:#1976D2;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:12px;
-
-    border-radius:10px;
+.apresentacao {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 2.2rem;
+    font-family: 'Lobster', cursive;
+    color: #C0392B;
+    animation: pulsar 1s ease-in-out infinite alternate;
 }
 
-/* ===========================
-   WHATSAPP
-=========================== */
-
-.whatsapp-btn{
-
-    display:block;
-
-    text-align:center;
-
-    background:#25D366;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:15px;
-
-    border-radius:10px;
-
-    font-weight:bold;
-
-    margin-top:10px;
+@keyframes pulsar {
+    from { transform: scale(0.98); }
+    to { transform: scale(1.04); }
 }
 
-/* ===========================
-   QR CODE
-=========================== */
-
-.qr{
-    text-align:center;
-}
-
-.qr-code{
-
-    width:220px;
-
-    max-width:100%;
-
-    margin-top:15px;
-}
-
-/* ===========================
-   PAINEL ADMIN
-=========================== */
-
-.stats{
-
-    display:flex;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:20px;
-}
-
-.box{
-
-    flex:1;
-
-    min-width:140px;
-
-    background:#FFF3CD;
-
-    border-radius:15px;
-
-    padding:20px;
-
-    text-align:center;
-}
-
-.box span{
-
-    display:block;
-
-    font-size:2.2rem;
-
-    font-weight:bold;
-
-    color:#D35400;
-}
-
-/* ===========================
-   FOOTER
-=========================== */
-
-footer{
-
-    margin-top:50px;
-
-    background:#111;
-
-    text-align:center;
-
-    padding:20px;
-
-    color:white;
-}
-
-/* ===========================
-   RESPONSIVO
-=========================== */
-
-@media(max-width:768px){
-
-    header h1{
-        font-size:2.5rem;
-    }
-
-    .logos{
-        flex-direction:column;
-    }
-
-    .logo{
-        width:100px;
-    }
-
-    #contador{
-        grid-template-columns:repeat(2,1fr);
-    }
-
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+@media(max-width: 768px){
+    header h1 { font-size: 2.8rem; }
+    header h2 { font-size: 1.4rem; }
+    #contador { grid-template-columns: repeat(2, 1fr); }
 }
