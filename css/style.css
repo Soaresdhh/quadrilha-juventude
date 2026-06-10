@@ -9,18 +9,20 @@
     box-sizing: border-box;
 }
 
+/* Coloquei a cor de segurança no HTML para não cobrir a foto */
+html {
+    background-color: #140F23;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: white;
     min-height: 100vh;
-    overflow-x: hidden; /* Evita barra de rolagem horizontal */
-    
-    /* Configurações básicas para a foto de fundo desfocada */
-    background: #140F23; /* Cor de fundo de segurança */
+    overflow-x: hidden;
     position: relative;
+    /* Removi o background que estava escondendo a imagem! */
 }
 
-/* Criamos uma camada falsa para a imagem de fundo para poder desfocá-la */
 /* Camada da imagem de fundo desfocada */
 body::before {
     content: "";
@@ -29,13 +31,13 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* O nome exato que você escolheu para a foto! */
+    /* LINK ABSOLUTO DIRETO DO SEU SITE - À prova de erros! */
     background-image: 
         linear-gradient(
             rgba(20, 15, 35, 0.90),
             rgba(40, 20, 10, 0.92)
         ),
-        url('../imagem/fundo-comunidade.jpg');
+        url('https://soaresdhh.github.io/quadrilha-juventude/imagem/fundo-comunidade.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -43,6 +45,7 @@ body::before {
     -webkit-filter: blur(8px);
     z-index: -1;
 }
+
 /* ==========================================================================
    BANDEIRINHAS ANIMADAS
    ========================================================================== */
@@ -64,7 +67,7 @@ body::before {
 }
 
 /* ==========================================================================
-   HEADER COM LOGOS E FONTES ANIMADAS (EFEITO JUNINO)
+   HEADER COM LOGOS E FONTES ANIMADAS
    ========================================================================== */
 header {
     text-align: center;
@@ -78,22 +81,17 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Espaço entre as logos */
+    gap: 30px;
     margin-bottom: 20px;
 }
 
-/* Estilização básica das logos */
-.logos a::after {
-    display: none; /* Remove possíveis estilos de link */
-}
-
-/* Colocamos as imagens diretamente no local reservado pelo HTML */
 .logos::before {
     content: "";
     display: block;
-    width: 80px; /* Tamanho da primeira logo */
+    width: 80px;
     height: 80px;
-    background-image: url('../imagem/logo-paroquia.png');
+    /* LINK ABSOLUTO DA LOGO DA PARÓQUIA */
+    background-image: url('https://soaresdhh.github.io/quadrilha-juventude/imagem/logo-paroquia.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -103,9 +101,10 @@ header {
 .logos::after {
     content: "";
     display: block;
-    width: 80px; /* Tamanho da segunda logo */
+    width: 80px;
     height: 80px;
-    background-image: url('../imagem/logo-pastoral.png');
+    /* LINK ABSOLUTO DA LOGO DA PASTORAL */
+    background-image: url('https://soaresdhh.github.io/quadrilha-juventude/imagem/logo-pastoral.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -115,29 +114,26 @@ header {
 header h1 {
     font-family: 'Lobster', cursive;
     font-size: 4.5rem;
-    color: #FFCA28; /* Amarelo milho brilhante */
+    color: #FFCA28;
     display: inline-block;
-    /* Aplica a animação de balanço e brilho de fogueira */
     animation: balancoJunino 3s ease-in-out infinite alternate, brilhoFogueira 1.5s ease-in-out infinite alternate;
     transform-origin: top center;
 }
 
 header h2 {
     font-family: 'Fredoka', sans-serif;
-    color: #FF9800; /* Laranja caipira */
+    color: #FF9800;
     margin-top: 15px;
     font-size: 1.8rem;
     letter-spacing: 1px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
-/* Animação 1: Faz o título balançar suavemente */
 @keyframes balancoJunino {
     0% { transform: rotate(-3deg); }
     100% { transform: rotate(3deg); }
 }
 
-/* Animação 2: Efeito de brilho de fogueira */
 @keyframes brilhoFogueira {
     0% { text-shadow: 3px 3px 0px #7B241C, 0 0 10px #E65100, 0 0 20px #FF5722; }
     100% { text-shadow: 3px 3px 0px #7B241C, 0 0 15px #F57C00, 0 0 30px #FFCC80; }
@@ -159,14 +155,12 @@ header h2 {
 }
 
 .card {
-    background: #FFFDF9; /* Cor creme super aconchegante */
-    color: #3E2723; /* Marrom escuro café */
+    background: #FFFDF9;
+    color: #3E2723;
     border-radius: 24px;
     padding: 30px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.6);
     transition: .3s;
-    
-    /* Borda tracejada que imita costura de roupa caipira */
     border: 4px dashed #D35400; 
     position: relative;
 }
@@ -221,7 +215,7 @@ input:focus, select:focus {
 button {
     margin-top: 25px;
     border: none;
-    background: #2E7D32; /* Verde bandeira */
+    background: #2E7D32;
     color: white;
     padding: 16px;
     border-radius: 15px;
@@ -229,7 +223,7 @@ button {
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 0px #1B5E20; /* Efeito 3D */
+    box-shadow: 0 4px 0px #1B5E20;
     transition: .1s;
 }
 
@@ -250,7 +244,7 @@ button:hover {
 }
 
 #contador div {
-    background: #E67E22; /* Laranja fogueira */
+    background: #E67E22;
     color: white;
     padding: 12px 6px;
     border-radius: 14px;
@@ -266,7 +260,7 @@ button:hover {
 }
 
 .ensaios li {
-    background: #FFF3CD; /* Amarelzinho */
+    background: #FFF3CD;
     list-style: none;
     margin-bottom: 12px;
     padding: 14px;
