@@ -9,7 +9,6 @@
     box-sizing: border-box;
 }
 
-/* Coloquei a cor de segurança no HTML para não cobrir a foto */
 html {
     background-color: #140F23;
 }
@@ -20,10 +19,9 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
-    /* Removi o background que estava escondendo a imagem! */
 }
 
-/* Camada da imagem de fundo desfocada */
+/* Camada da imagem de fundo desfocada (USANDO O LINK BRUTO DO GITHUB) */
 body::before {
     content: "";
     position: fixed;
@@ -31,13 +29,12 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* LINK ABSOLUTO DIRETO DO SEU SITE - À prova de erros! */
     background-image: 
         linear-gradient(
             rgba(20, 15, 35, 0.90),
             rgba(40, 20, 10, 0.92)
         ),
-        url('https://soaresdhh.github.io/quadrilha-juventude/imagem/fundo-comunidade.jpg');
+        url('https://raw.githubusercontent.com/Soaresdhh/quadrilha-juventude/main/imagem/fundo-comunidade.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -90,8 +87,8 @@ header {
     display: block;
     width: 80px;
     height: 80px;
-    /* LINK ABSOLUTO DA LOGO DA PARÓQUIA */
-    background-image: url('https://soaresdhh.github.io/quadrilha-juventude/imagem/logo-paroquia.png');
+    /* LINK BRUTO DA LOGO DA PARÓQUIA */
+    background-image: url('https://raw.githubusercontent.com/Soaresdhh/quadrilha-juventude/main/imagem/logo-paroquia.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -103,8 +100,8 @@ header {
     display: block;
     width: 80px;
     height: 80px;
-    /* LINK ABSOLUTO DA LOGO DA PASTORAL */
-    background-image: url('https://soaresdhh.github.io/quadrilha-juventude/imagem/logo-pastoral.png');
+    /* LINK BRUTO DA LOGO DA PASTORAL */
+    background-image: url('https://raw.githubusercontent.com/Soaresdhh/quadrilha-juventude/main/imagem/logo-pastoral.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -140,7 +137,7 @@ header h2 {
 }
 
 /* ==========================================================================
-   CONTAINER E CARDS (ESTILO ACONCHEGANTE / RETALHO)
+   CONTAINER E CARDS
    ========================================================================== */
 .container {
     width: 95%;
